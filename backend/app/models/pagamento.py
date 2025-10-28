@@ -8,6 +8,7 @@ class Pagamento(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     conta_id = Column(UUID(as_uuid=True), ForeignKey("contas.id"), nullable=True)
+    descricao = Column(String, nullable=True)
     valor = Column(Float, nullable=False)
     codigo_barras = Column(String, nullable=False)
     data_vencimento = Column(Date, nullable=False)

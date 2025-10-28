@@ -1,20 +1,22 @@
 from pydantic import BaseModel
-from typing import Literal
+from uuid import UUID
 from datetime import datetime
+from typing import Optional, Literal
 
 class TransacaoCreate(BaseModel):
+    conta_id: UUID
     valor: float
-    tipo: Literal["deposito", "saque"]
-    descricao: str
-    conta_id: int
+    tipo: Literal["deposito", "saque"]  # "deposito" ou "saque"
+    descricao: Optional[str] = None
 
 class TransacaoOut(BaseModel):
-    id: int
+    id: UUID
+    conta_id: UUID
     valor: float
     tipo: str
-    descricao: str
+    descricao: Optional[str]
+    status: str
     data: datetime
-    conta_id: int
 
     class Config:
         from_attributes = True

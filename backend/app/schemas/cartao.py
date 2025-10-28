@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Literal
 from datetime import date
+from uuid import UUID
 
 class CartaoCreate(BaseModel):
     numero: str
@@ -8,15 +9,15 @@ class CartaoCreate(BaseModel):
     cvv: str
     tipo: Literal["credito", "debito"]
     limite: float
-    conta_id: int
+    conta_id: UUID
 
 class CartaoOut(BaseModel):
-    id: int
+    id: UUID
     numero: str
     validade: date
     tipo: str
     limite: float
-    conta_id: int
+    conta_id: UUID
 
     class Config:
         from_attributes = True

@@ -1,18 +1,23 @@
 from pydantic import BaseModel
+from uuid import UUID
 from datetime import date
+from typing import Optional
 
 class PagamentoCreate(BaseModel):
-    descricao: str
+    conta_id: UUID
     valor: float
-    data_pagamento: date
-    conta_id: int
+    codigo_barras: str
+    data_vencimento: date
+    descricao: Optional[str] = None
 
 class PagamentoOut(BaseModel):
-    id: int
-    descricao: str
+    id: UUID
+    conta_id: UUID
     valor: float
-    data_pagamento: date
-    conta_id: int
+    codigo_barras: str
+    data_vencimento: date
+    status: str
+    descricao: Optional[str] = None
 
     class Config:
         from_attributes = True

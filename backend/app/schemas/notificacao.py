@@ -1,15 +1,20 @@
 from pydantic import BaseModel
 from datetime import datetime
+from uuid import UUID
+from typing import Literal
 
 class NotificacaoCreate(BaseModel):
     mensagem: str
-    usuario_id: int
+    tipo: Literal["alerta", "informativo", "transacional"]
+    usuario_id: UUID
 
 class NotificacaoOut(BaseModel):
-    id: int
+    id: UUID
     mensagem: str
+    tipo: str
+    status: str
     data_envio: datetime
-    usuario_id: int
+    usuario_id: UUID
 
     class Config:
         from_attributes = True

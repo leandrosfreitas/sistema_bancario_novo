@@ -8,9 +8,9 @@ class Transacao(Base):
     __tablename__ = "transacoes"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    conta_origem_id = Column(UUID(as_uuid=True), ForeignKey("contas.id"), nullable=False)
-    conta_destino_id = Column(UUID(as_uuid=True), ForeignKey("contas.id"), nullable=False)
+    conta_id = Column(UUID(as_uuid=True), ForeignKey("contas.id"), nullable=False)
     valor = Column(Float, nullable=False)
-    tipo = Column(String, nullable=False)
-    status = Column(String, default="pendente")
+    tipo = Column(String, nullable=False)  # "deposito" ou "saque"
+    descricao = Column(String, nullable=True)
+    status = Column(String, default="concluída")
     data = Column(DateTime, default=datetime.utcnow)

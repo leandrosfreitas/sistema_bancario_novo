@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Float, Integer, ForeignKey
+from sqlalchemy import Column, String, Float, Integer, ForeignKey, Date
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 from app.db.base_class import Base
@@ -11,4 +11,5 @@ class Emprestimo(Base):
     parcelas = Column(Integer, nullable=False)
     taxa_juros = Column(Float, nullable=False)
     status = Column(String, default="simulado")
+    data_inicio = Column(Date, nullable=False)
     conta_id = Column(UUID(as_uuid=True), ForeignKey("contas.id"), nullable=False)

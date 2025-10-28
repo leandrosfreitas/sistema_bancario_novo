@@ -1,18 +1,20 @@
 from pydantic import BaseModel
 from datetime import date
+from uuid import UUID
 
 class InvestimentoCreate(BaseModel):
     tipo: str
-    valor: float
+    valor_aplicado: float
     data_aplicacao: date
-    conta_id: int
+    conta_id: UUID
 
 class InvestimentoOut(BaseModel):
-    id: int
+    id: UUID
     tipo: str
-    valor: float
+    valor_aplicado: float
     data_aplicacao: date
-    conta_id: int
+    rentabilidade: float
+    conta_id: UUID
 
     class Config:
         from_attributes = True

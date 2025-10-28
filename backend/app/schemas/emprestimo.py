@@ -1,20 +1,22 @@
 from pydantic import BaseModel
 from datetime import date
+from uuid import UUID
 
 class EmprestimoCreate(BaseModel):
     valor: float
-    juros: float
+    taxa_juros: float
     parcelas: int
     data_inicio: date
-    conta_id: int
+    conta_id: UUID
 
 class EmprestimoOut(BaseModel):
-    id: int
+    id: UUID
     valor: float
-    juros: float
+    taxa_juros: float
     parcelas: int
     data_inicio: date
-    conta_id: int
+    conta_id: UUID
+    status: str
 
     class Config:
         from_attributes = True
