@@ -1,0 +1,94 @@
+/* Fundo preto total */
+.login-container {
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Card central */
+.login-card {
+  background: #0d0d0d;
+  padding: 40px;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  border: 1px solid #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo superior */
+.login-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+/* Título */
+.login-title {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Formulário */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs */
+.login-form input {
+  background: #111;
+  border: 1px solid #333;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.25s;
+}
+
+/* Input foco */
+.login-form input:focus {
+  border-color: #4dd2ff;
+  outline: none;
+  box-shadow: 0 0 10px #0077ff33;
+}
+
+/* Botão */
+.login-form button {
+  background: linear-gradient(90deg, #0077ff, #00ccff);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s;
+}
+
+/* Hover do botão */
+.login-form button:hover {
+  filter: brightness(1.15);
+  transform: scale(1.02);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px;
+  }
+
+  .login-title {
+    font-size: 1.4rem;
+  }
+}
