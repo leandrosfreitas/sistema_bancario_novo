@@ -47,11 +47,11 @@
 
 /* Inputs */
 .login-form input {
-  background: #111;
+  background: #111111;
   border: 1px solid #333;
   padding: 12px 14px;
   border-radius: 10px;
-  color: #fff;
+  color: #ffffff;
   font-size: 1rem;
   transition: all 0.25s;
 }

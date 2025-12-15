@@ -111,11 +111,17 @@
 /* ===================== */
 .dashboard-main {
   flex: 1;
+  /* Espaço IGUAL nas bordas */
   padding: 40px;
   display: grid;
+  /* Grid fixo 3 colunas x 2 linhas */
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 180px);
-  gap: 25px;
+  /* Espaço IGUAL entre os itens */
+  gap: 60px;
+  /* Centraliza o grid dentro da área */
+  justify-content: stretch;
+  align-content: center;
 }
 
 .dashboard-btn-main {
