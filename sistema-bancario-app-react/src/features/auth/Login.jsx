@@ -5,11 +5,10 @@ import "./Login.css";
 import { useState } from "react";
 
 // Importa o hook useNavigate para fazer navegação entre rotas
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 // Define e exporta o componente Login
 export default function Login() {
-
   // Cria um estado para armazenar o valor do campo de e-mail
   // email = valor atual
   // setEmail = função para atualizar o valor
@@ -76,6 +75,15 @@ export default function Login() {
           {/* Botão que envia o formulário */}
           <button type="submit">
             Entrar
+          </button>
+
+          {/* Botão para redirecionar ao cadastro */}
+          <button
+            type="button"
+            className="register-button"
+            onClick={() => navigate("/register")}
+          >
+            Cadastrar
           </button>
 
         </form>
