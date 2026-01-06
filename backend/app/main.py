@@ -1,21 +1,14 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.api.v1 import api_router
+from app.middlewares.cors import setup_cors
 
 app = FastAPI(
     title="Internet Banking API",
     debug=settings.DEBUG
 )
 
-# ✅ Middleware de CORS (permite comunicação com o frontend React)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"]
-)
+setup_cors(app)
 
 # ✅ Rotas da API
 app.include_router(api_router, prefix="/api/v1")

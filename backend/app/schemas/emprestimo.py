@@ -15,8 +15,8 @@ class EmprestimoOut(BaseModel):
     taxa_juros: float
     parcelas: int
     data_inicio: date
-    conta_id: UUID
     status: str
+    conta_id: UUID
 
     class Config:
         from_attributes = True

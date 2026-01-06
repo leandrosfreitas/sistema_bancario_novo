@@ -4,10 +4,11 @@ from uuid import UUID
 
 class UsuarioCreate(BaseModel):
     nome: str
+    cpf: str
+    data_nascimento: str
     email: EmailStr
     senha: str
     telefone: Optional[str] = None
-    documento: str
 
 class UsuarioUpdate(BaseModel):
     nome: Optional[str] = None
@@ -17,10 +18,9 @@ class UsuarioUpdate(BaseModel):
 class UsuarioOut(BaseModel):
     id: UUID
     nome: str
+    cpf: str
     email: EmailStr
-    telefone: Optional[str] = None
-    documento: str
-    is_ativo: bool
+    telefone: Optional[str]
 
     class Config:
         from_attributes = True

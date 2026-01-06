@@ -20,23 +20,49 @@ export default function Register() {
   const navigate = useNavigate();
 
   // Função executada quando o formulário é enviado
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validação simples de senha
     if (senha !== confirmarSenha) {
       alert("As senhas não coincidem!");
       return;
     }
 
-    // Exibe no console os dados cadastrados (apenas para teste)
-    console.log("Cadastro enviado", { nome, email, senha });
+    const payload = {
+      nome,
+      cpf,
+      data_nascimento,
+      telefone,
+      email,
+      senha
+    };
 
-    // ✅ Salva o e-mail do usuário no localStorage (simulação)
-    localStorage.setItem("user", email);
+    try {
+      const response = await fetch("http://localhost:8000/api/v1/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
 
-    // Redireciona para o dashboard
-    navigate("/dashboard");
+      if (!response.ok) {
+        const error = await response.json();
+        alert(error.detail || "Erro ao cadastrar");
+        return;
+      }
+
+      const data = await response.json();
+
+      // opcional: salvar info do usuário
+      localStorage.setItem("user", data.email);
+
+      navigate("/dashboard");
+
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao conectar com o servidor");
+    }
   };
 
   // JSX retornado pelo componente

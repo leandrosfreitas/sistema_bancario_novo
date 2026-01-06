@@ -17,6 +17,7 @@ class CartaoOut(BaseModel):
     validade: date
     tipo: str
     limite: float
+    fatura_atual: float
     conta_id: UUID
 
     class Config:
